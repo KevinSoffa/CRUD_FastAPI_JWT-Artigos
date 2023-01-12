@@ -1,4 +1,4 @@
-from fastapi.security import OAuth2AuthorizationCodeBearer
+from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 from datetime import datetime, timedelta
 from sqlalchemy.future import select
@@ -12,7 +12,7 @@ from core.configs import settings
 from core.security import verificar_senha
 
 
-oauth2_schema = OAuth2AuthorizationCodeBearer(
+oauth2_schema = OAuth2PasswordBearer(
     tokenUrl=f"{settings.API_V1_STR}/usuarios/login"
 )
 
@@ -34,7 +34,7 @@ def _criar_token(tipo_token: str, tempo_vida: timedelta, sub: str) -> str:
     payload = {}
 
     sp = timezone('America/Sao_Paulo')
-    expira = datetime.now(tz=sp + tempo_vida)
+    expira = datetime.now(tz=sp) + tempo_vida
 
     payload["type"] = tipo_token
 

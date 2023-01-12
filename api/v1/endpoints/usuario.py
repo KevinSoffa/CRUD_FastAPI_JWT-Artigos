@@ -2,6 +2,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 from models.usuario_model import UsuarioModel
 from fastapi.responses import JSONResponse
+from sqlalchemy.exc import IntegrityError
 from typing import List, Optional, Any
 from sqlalchemy.future import select
 
@@ -46,10 +47,17 @@ async def post_usuario(usuario: UsuarioSchemaCreate, db: AsyncSession = Depends(
     )
 
     async with db as session:
-        session.add(novo_usuario)
-        await session.commit()
+        try:
+            session.add(novo_usuario)
+            await session.commit()
 
-        return novo_usuario
+            return novo_usuario
+
+        except IntegrityError:
+            raise HTTPException(
+                status_code=status.HTTP_406_NOT_ACCEPTABLE,
+                detail=f'O e-mail: {str(usuario.email)}, já exites no banco de dados'
+                )
 
 
 # GET Usuarios
