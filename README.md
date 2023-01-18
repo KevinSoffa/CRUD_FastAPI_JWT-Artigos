@@ -30,7 +30,26 @@
 <hr>
   <h3>&#x1F535 PUT [ID] - Usuário</h3>
   <p>/api/v1/usuarios/{id}</p>
+  <h5>Campos</h5>
+    <ul>nome - str</ul>
+    <ul>sobrenome - str</ul>
+    <ul>email - str</ul>
+    <ul>senha - str</ul>
+    <ul>eh-admin - bool</ul>
 <hr>
 <h3>&#x1F534 DEL [ID] - Usuário</h3>
   <p>/api/v1/usuarios/{id}</p>
+<hr>
+<br>
+<h2>Artigo</h2>
+<h3>&#x1F7E0 POST - Criar Artigo</h3>
+<p>/api/v1/usuarios/signup</p>
+  <h5>Token</h5>
+  AUth - Token
+  <h5>Campos</h5>
+    <ul>titulo - str</ul>
+    <ul>descricao - str</ul>
+    <ul>url_fonte - str</ul>
+<hr>
+
   
