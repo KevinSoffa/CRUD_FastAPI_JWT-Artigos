@@ -51,5 +51,22 @@
     <ul>descricao - str</ul>
     <ul>url_fonte - str</ul>
 <hr>
+<h3>&#x1F7E2 GET - Artigos</h3>
+  <p>/api/v1/artigos</p>
+<hr>
+<h3>&#x1F7E2 GET [ID] - Artigo</h3>
+  <p>/api/v1/artigos/{id}</p>
+<hr>
+<h3>&#x1F7E0 PUT [ID]- Artigo</h3>
+<p>/api/v1/artigos/{id}</p>
+  <h5>Token</h5>
+  AUth - Token
+  <h5>Campos</h5>
+    <ul>titulo - str</ul>
+    <ul>descricao - str</ul>
+    <ul>url_fonte - str</ul>
+<hr>
+<h3>&#x1F534 DEL [ID] - Artigo</h3>
+  <p>/api/v1/artigos/{id}</p>
 
   
